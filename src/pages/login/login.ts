@@ -14,6 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  private credential: Object = {
+    email :'',
+    password : ''
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -21,7 +25,5 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-  logar(){
-    console.log("Me loguei agora.")
-  }
+
 }

@@ -14,19 +14,18 @@
 
 
 <ion-content padding>
-  <ion-list>
-
-    <ion-item>
-      <ion-label floating>Usuário</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Senha</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
 
 
-  </ion-list>
-  <button (click)="logar()" ion-button>Entrar</button>
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" [(ngModel)]='credential.email'></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Senha</ion-label>
+    <ion-input type="password" [(ngModel)]='credential.password'></ion-input>
+  </ion-item>
+  <p>
+    <button (click)="logar()" ion-button full>Entrar</button>
+  </p>
 </ion-content>
