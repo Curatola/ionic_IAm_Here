@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from './../../providers/auth/auth';
+import { TurmasPage } from '../turmas/turmas';
 
 
 @IonicPage()
@@ -20,6 +21,7 @@ export class LoginPage {
     this.authProvider.login(this.credential.email, this.credential.password)
       .then((result: any) => {
         this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+        this.navCtrl.setRoot(TurmasPage);
 
         //Salvar o token no Ionic Storage para usar em futuras requisições.
         //Redirecionar o usuario para outra tela usando o navCtrl
