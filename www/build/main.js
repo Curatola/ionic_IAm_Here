@@ -200,20 +200,21 @@ var AuthProvider = /** @class */ (function () {
         this.API_URL = 'https://reqres.in/api/';
         console.log('Hello AuthProvider Provider');
     }
-    AuthProvider.prototype.userIsLogged = function () {
-        return this.storage.get('token').then(function (val) {
-            if (val !== undefined) {
-                return val;
-            }
-            else {
-                return false;
-            }
-        });
-    };
-    AuthProvider.prototype.deslogar = function () {
-        this.storage.remove('token');
-        console.log("Me desloguei agora.");
-    };
+    /*
+    userIsLogged() {
+      return this.storage.get('token').then(val => {
+        if (val !== undefined) {
+          return val;
+        }
+        else {
+          return false;
+        }
+      });
+    }
+    deslogar() {
+      this.storage.remove('token');
+      console.log("Me desloguei agora.")
+    }*/
     AuthProvider.prototype.login = function (email, password) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -319,8 +320,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/listas/listas.module#ListasPageModule', name: 'ListasPage', segment: 'listas', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nova-lista/nova-lista.module#NovaListaPageModule', name: 'NovaListaPage', segment: 'nova-lista', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/turmas/turmas.module#TurmasPageModule', name: 'TurmasPage', segment: 'turmas', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/presenca/presenca.module#PresencaPageModule', name: 'PresencaPage', segment: 'presenca', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/presenca/presenca.module#PresencaPageModule', name: 'PresencaPage', segment: 'presenca', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/turmas/turmas.module#TurmasPageModule', name: 'TurmasPage', segment: 'turmas', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_15__ionic_storage__["a" /* IonicStorageModule */].forRoot({ name: '_mydb' }),
@@ -526,12 +527,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the TurmasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var TurmasPage = /** @class */ (function () {
     function TurmasPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
@@ -587,7 +582,7 @@ var ListasPage = /** @class */ (function () {
     };
     ListasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-listas',template:/*ion-inline-start:"/home/curatola/GitRepo/ionic_IAm_Here/src/pages/listas/listas.html"*/'<!--\n  Generated template for the ListasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Listas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-icon name="people" item-start></ion-icon>\n    Anteprojeto\n    <ion-item>\n      Aula - 14/07\n    </ion-item>\n    <ion-item>\n      Aula - 16/07\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/curatola/GitRepo/ionic_IAm_Here/src/pages/listas/listas.html"*/,
+            selector: 'page-listas',template:/*ion-inline-start:"/home/curatola/GitRepo/ionic_IAm_Here/src/pages/listas/listas.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Listas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-icon name="people" item-start></ion-icon>\n    Anteprojeto\n    <ion-item>\n      Aula - 14/07\n    </ion-item>\n    <ion-item>\n      Aula - 16/07\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/curatola/GitRepo/ionic_IAm_Here/src/pages/listas/listas.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], ListasPage);
