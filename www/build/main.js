@@ -200,20 +200,21 @@ var AuthProvider = /** @class */ (function () {
         this.API_URL = 'https://reqres.in/api/';
         console.log('Hello AuthProvider Provider');
     }
-    AuthProvider.prototype.userIsLogged = function () {
-        return this.storage.get('token').then(function (val) {
-            if (val !== undefined) {
-                return val;
-            }
-            else {
-                return false;
-            }
-        });
-    };
-    AuthProvider.prototype.deslogar = function () {
-        this.storage.remove('token');
-        console.log("Me desloguei agora.");
-    };
+    /*
+    userIsLogged() {
+      return this.storage.get('token').then(val => {
+        if (val !== undefined) {
+          return val;
+        }
+        else {
+          return false;
+        }
+      });
+    }
+    deslogar() {
+      this.storage.remove('token');
+      console.log("Me desloguei agora.")
+    }*/
     AuthProvider.prototype.login = function (email, password) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -319,8 +320,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/listas/listas.module#ListasPageModule', name: 'ListasPage', segment: 'listas', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nova-lista/nova-lista.module#NovaListaPageModule', name: 'NovaListaPage', segment: 'nova-lista', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/turmas/turmas.module#TurmasPageModule', name: 'TurmasPage', segment: 'turmas', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/presenca/presenca.module#PresencaPageModule', name: 'PresencaPage', segment: 'presenca', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/presenca/presenca.module#PresencaPageModule', name: 'PresencaPage', segment: 'presenca', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/turmas/turmas.module#TurmasPageModule', name: 'TurmasPage', segment: 'turmas', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_15__ionic_storage__["a" /* IonicStorageModule */].forRoot({ name: '_mydb' }),
