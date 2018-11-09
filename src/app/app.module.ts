@@ -16,7 +16,6 @@ import { TurmasPageModule } from '../pages/turmas/turmas.module';
 import { AuthProvider } from '../providers/auth/auth';
 import { IonicStorageModule } from '@ionic/storage';
 import { FormsModule } from '@angular/forms';
-import { TurmasProvider } from '../providers/turmas/turmas';
 import { PresencaListasProvider } from '../providers/presenca-listas/presenca-listas';
 import { PresencaAlunosProvider } from '../providers/presenca-alunos/presenca-alunos';
 import { TurmasListaProvider } from '../providers/turmas-lista/turmas-lista';
@@ -49,7 +48,6 @@ import { TurmasListaProvider } from '../providers/turmas-lista/turmas-lista';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
-    TurmasProvider,
     PresencaListasProvider,
     PresencaAlunosProvider,
     TurmasListaProvider
