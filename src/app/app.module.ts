@@ -3,8 +3,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { TabsPage } from '../pages/tabs/tabs';
 import {HttpModule} from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,15 +17,14 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({ name: '_mydb'}),
+    IonicStorageModule.forRoot({ name: 'mydb'}),
     ListasPageModule,
     TurmasPageModule,
     LoginPageModule
@@ -37,8 +34,7 @@ import { FormsModule } from '@angular/forms';
     MyApp,
     LoginPage,
     TurmasPage,
-    ListasPage,
-    TabsPage
+    ListasPage
   ],
   providers: [
     StatusBar,
