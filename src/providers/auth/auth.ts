@@ -11,7 +11,7 @@ export class AuthProvider {
   ) {
     console.log('Hello AuthProvider Provider');
   }
-  
+  /*
   userIsLogged() {
     return this.storage.get('token').then(val => {
       if (val !== undefined) {
@@ -25,7 +25,7 @@ export class AuthProvider {
   deslogar() {
     this.storage.remove('token');
     console.log("Me desloguei agora.")
-  }
+  }*/
   login(email: string, password: string) {
     return new Promise((resolve, reject) => {
       var data = {
