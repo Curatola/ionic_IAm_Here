@@ -14,6 +14,7 @@ import { TurmasPageModule } from '../pages/turmas/turmas.module';
 import { AuthProvider } from '../providers/auth/auth';
 import { IonicStorageModule } from '@ionic/storage';
 import { FormsModule } from '@angular/forms';
+import { RequestProvider } from '../providers/request/request';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    RequestProvider
   ]
 })
 export class AppModule {}

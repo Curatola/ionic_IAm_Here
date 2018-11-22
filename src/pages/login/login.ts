@@ -14,10 +14,14 @@ export class LoginPage {
   credential: User;
   constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private authProvider: AuthProvider) {
     this.credential = new User();
-    this.credential.email = 'prof@ifes';
-    this.credential.password = 'logic';
+    this.credential.email = 'leds_serra@gmail.com';
+    this.credential.password = 'leds123';
     this.credential.storage = null;
-
+    this.islogged();
+  }
+  async islogged() {
+    var logged=await this.authProvider.userIsLogged();
+    this.toast.create({ message: 'UserLogged: ' + logged, position: 'botton', duration: 3000 }).present();
   }
   login() {
     this.authProvider.login(this.credential.email, this.credential.password)

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RequestProvider } from '../../providers/request/request';
 
 /**
  * Generated class for the TurmasPage page.
@@ -15,7 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TurmasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  turmas: Array<{ id: number, nome: string, ano: string, semestre: string }>
+  constructor(public navCtrl: NavController, public navParams: NavParams, public requests: RequestProvider) {
+    this.load()
+  }
+
+  async load() {
+    this.turmas = await this.requests.get("turmas")
+    
   }
 
   ionViewDidLoad() {

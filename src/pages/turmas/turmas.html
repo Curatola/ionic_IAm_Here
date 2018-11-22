@@ -15,13 +15,9 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
-      <ion-icon name="people" item-start></ion-icon>
-      Anteprojeto
-    </ion-item>
-    <ion-item>
-      <ion-icon name="laptop" item-start></ion-icon>
-      Gestão Projeto de Sistemas
-    </ion-item>
+    <button *ngFor="let turma of turmas" ion-item>
+      <h2>{{turma.nome}}</h2>
+      <h3>{{turma.ano}}/{{turma.semestre}}</h3>
+    </button>
   </ion-list>
 </ion-content>
