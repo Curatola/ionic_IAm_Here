@@ -13,6 +13,8 @@ export class AuthProvider {
   }
  
   async userIsLogged() {
+    
+
     let val = await this.storage.get('token')
     
     if (val !== undefined) {
