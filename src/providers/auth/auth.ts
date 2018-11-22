@@ -1,42 +1,32 @@
 import { Headers,Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class AuthProvider {
   private API_URL = 'http://127.0.0.1:5000/login'
-  constructor(
-    public http: Http,
-    public storage: Storage
-  ) {
-    console.log('Hello AuthProvider Provider');
+  constructor(public http: Http) {
   }
  
-  async userIsLogged() {
-    
-
-    let val = await this.storage.get('token')
-    
-    if (val !== undefined) {
-      return val;
-    }
-    else {
-      return false;
-    }
+  userIsLogged() {
+    return localStorage.getItem('token') || sessionStorage.getItem('token');
   }
   deslogar() {
-    this.storage.remove('token');
-    console.log("Me desloguei agora.")
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('token')
   }
-  login(email: string, password: string) {
+  login(email: string, password: string, isPersistent: boolean) {
     return new Promise((resolve, reject) => {
       var header = new Headers();
       header.append('Authorization','Basic '+btoa(email+':'+password));
-       console.log(header);
 
       this.http.get(this.API_URL,{headers:header})
         .subscribe((result: any) => {
-          this.storage.set('token',result.json().token)
+          if(isPersistent){
+            localStorage.setItem('token',result.json().token);
+          }
+          else{
+            sessionStorage.setItem('token',result.json().token);
+          }
           
           resolve(result.json());
         },

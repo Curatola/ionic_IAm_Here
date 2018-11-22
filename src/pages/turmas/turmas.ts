@@ -1,5 +1,7 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthProvider } from './../../providers/auth/auth';
 import { RequestProvider } from '../../providers/request/request';
 
 /**
@@ -17,17 +19,21 @@ import { RequestProvider } from '../../providers/request/request';
 export class TurmasPage {
 
   turmas: Array<{ id: number, nome: string, ano: string, semestre: string }>
-  constructor(public navCtrl: NavController, public navParams: NavParams, public requests: RequestProvider) {
+ 
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public requests: RequestProvider,
+              public authProvider:AuthProvider
+      ) {
     this.load()
   }
 
   async load() {
     this.turmas = await this.requests.get("turmas")
-    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TurmasPage');
+  deslogar(){
+    this.authProvider.deslogar();
+    this.navCtrl.setRoot(LoginPage);
   }
-
 }

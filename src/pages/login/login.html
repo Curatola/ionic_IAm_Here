@@ -20,7 +20,11 @@
     <ion-label floating>Senha</ion-label>
     <ion-input type="password" [(ngModel)]='credential.password'></ion-input>
   </ion-item>
-  <p>
+  <ion-item>
+    <ion-label>Manter conectado</ion-label>
+    <ion-checkbox [(ngModel)]="remember"></ion-checkbox>
+  </ion-item>
+  <div padding>
     <button (click)="login()" ion-button full>Entrar</button>
-  </p>
+  </div>
 </ion-content>
